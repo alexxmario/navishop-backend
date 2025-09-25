@@ -1,0 +1,79 @@
+
+> navishop-backend@1.0.0 start
+> node server.js
+
+[dotenv@17.2.0] injecting env (11) from .env (tip: ⚙️  override existing env vars with { override: true })
+Facebook OAuth credentials not found. Facebook authentication will be disabled.
+Server running on port 5001
+MongoDB Connected: localhost
+Auth middleware - req.body before processing: true
+Auth middleware - Content-Type: application/json
+Auth middleware - token received: true
+Auth middleware - decoded token: {
+  userId: '687e8efce537408e3ccb081f',
+  iat: 1753786930,
+  exp: 1753873330
+}
+Auth middleware - user found: true
+Auth middleware - setting req.userId: 687e8efce537408e3ccb081f
+User order request received - req.body exists: true
+User order req.body type: object
+User order req.body: {
+  items: [
+    {
+      productId: '12345',
+      name: 'Test Product',
+      price: 100,
+      quantity: 1
+    }
+  ],
+  shippingAddress: {
+    street: 'Test St',
+    city: 'Test City',
+    county: 'Test County',
+    postalCode: '12345'
+  },
+  paymentMethod: 'cash_on_delivery',
+  notes: 'Test order'
+}
+Request headers: {
+  host: 'localhost:5001',
+  connection: 'keep-alive',
+  'content-type': 'application/json',
+  authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODdlOGVmY2U1Mzc0MDhlM2NjYjA4MWYiLCJpYXQiOjE3NTM3ODY5MzAsImV4cCI6MTc1Mzg3MzMzMH0.gIo-jkP4CBNowrEVUTMQbcw_RYJ9Jq6qJtlaIJaHL6w',
+  accept: '*/*',
+  'accept-language': '*',
+  'sec-fetch-mode': 'cors',
+  'user-agent': 'node',
+  'accept-encoding': 'gzip, deflate',
+  'content-length': '238'
+}
+Error creating user order: CastError: Cast to ObjectId failed for value "12345" (type string) at path "_id" for model "Product"
+    at SchemaObjectId.cast (/Users/alexmario/Desktop/site navigatii/backend/node_modules/mongoose/lib/schema/objectId.js:251:11)
+    at SchemaType.applySetters (/Users/alexmario/Desktop/site navigatii/backend/node_modules/mongoose/lib/schemaType.js:1258:12)
+    at SchemaType.castForQuery (/Users/alexmario/Desktop/site navigatii/backend/node_modules/mongoose/lib/schemaType.js:1676:17)
+    at cast (/Users/alexmario/Desktop/site navigatii/backend/node_modules/mongoose/lib/cast.js:390:32)
+    at Query.cast (/Users/alexmario/Desktop/site navigatii/backend/node_modules/mongoose/lib/query.js:5055:12)
+    at Query._castConditions (/Users/alexmario/Desktop/site navigatii/backend/node_modules/mongoose/lib/query.js:2351:10)
+    at model.Query._findOne (/Users/alexmario/Desktop/site navigatii/backend/node_modules/mongoose/lib/query.js:2674:8)
+    at model.Query.exec (/Users/alexmario/Desktop/site navigatii/backend/node_modules/mongoose/lib/query.js:4604:80)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async /Users/alexmario/Desktop/site navigatii/backend/routes/orders.js:63:23 {
+  stringValue: '"12345"',
+  messageFormat: undefined,
+  kind: 'ObjectId',
+  value: '12345',
+  path: '_id',
+  reason: BSONError: input must be a 24 character hex string, 12 byte Uint8Array, or an integer
+      at new ObjectId (/Users/alexmario/Desktop/site navigatii/backend/node_modules/bson/lib/bson.cjs:2538:23)
+      at castObjectId (/Users/alexmario/Desktop/site navigatii/backend/node_modules/mongoose/lib/cast/objectid.js:25:12)
+      at SchemaObjectId.cast (/Users/alexmario/Desktop/site navigatii/backend/node_modules/mongoose/lib/schema/objectId.js:249:12)
+      at SchemaType.applySetters (/Users/alexmario/Desktop/site navigatii/backend/node_modules/mongoose/lib/schemaType.js:1258:12)
+      at SchemaType.castForQuery (/Users/alexmario/Desktop/site navigatii/backend/node_modules/mongoose/lib/schemaType.js:1676:17)
+      at cast (/Users/alexmario/Desktop/site navigatii/backend/node_modules/mongoose/lib/cast.js:390:32)
+      at Query.cast (/Users/alexmario/Desktop/site navigatii/backend/node_modules/mongoose/lib/query.js:5055:12)
+      at Query._castConditions (/Users/alexmario/Desktop/site navigatii/backend/node_modules/mongoose/lib/query.js:2351:10)
+      at model.Query._findOne (/Users/alexmario/Desktop/site navigatii/backend/node_modules/mongoose/lib/query.js:2674:8)
+      at model.Query.exec (/Users/alexmario/Desktop/site navigatii/backend/node_modules/mongoose/lib/query.js:4604:80),
+  valueType: 'string'
+}
